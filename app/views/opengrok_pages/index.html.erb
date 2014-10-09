@@ -1,0 +1,156 @@
+<script type="text/javascript">
+setTimeout("location.reload();",1800000);
+</script>
+<div id="left_div">
+<div style="padding-top:90px">  
+<strong>GGSM [AP]</strong>
+  <div id="selector"> 
+	<ul> 
+	   	<!-- JB MAIN tree -->  
+		<li>
+		<a>JB MAIN</a>
+		  <ul>
+		  	<% if !@params_jbmain_blueberry.empty? %>
+		        <%= render 'shared/jb_blueberry' %>
+		        <% end %>
+		        <% if !@params_jbmain_combination.empty? %>
+		        <%= render 'shared/jb_combination' %>
+		        <% end %>
+			
+		  </ul>
+		</li>
+		<!-- JB PROD tree --> 
+			<% if !@params_jb_prod.empty? %> 
+			<%= render 'shared/jb_prod' %>
+			<% end %>
+		<!-- JBP MAIN tree --> 
+		<li>
+		<a>JBP MAIN</a>
+		  <ul>
+		  	<% if !@params_main_strawberry.empty? %>
+		  	<%= render 'shared/strawberry' %>
+		  	<% end %>
+			<% if !@params_main_blueberry.empty? %>
+		        <%= render 'shared/blueberry' %>
+		        <% end %>
+		        <% if !@params_main_combination.empty? %>
+		        <%= render 'shared/combination' %>
+		        <% end %>
+		        <% if !@params_main_islandpunch.empty? %>
+		        <%= render 'shared/islandpunch' %>
+		        <% end %>
+			<% if !@params_main_maple.empty? %>
+                	<%= render 'shared/maple' %>
+                	<% end %>
+		  </ul>
+		</li>
+		<!-- JBP prod tree --> 
+			<% if !@params_jbp_prod.empty? %> 
+			<%= render 'shared/jbp_prod' %>
+		 	<% end %> 
+		
+		 <!-- kitkat configuration -->
+		<li>
+		<a>KK MAIN</a>
+		   <ul>
+		  	<% if !@params_kk_strawberry.empty? %>
+		  	<%= render 'shared/kk_strawberry' %>
+		  	<% end %>
+		  	<% if !@params_kk_blueberry.empty? %>
+		        <%= render 'shared/kk_blueberry' %>
+		        <% end %>
+		        <% if !@params_kk_combinations.empty? %>
+		        <%= render 'shared/kk_combination' %>
+		        <% end %>
+		        <% if !@params_kk_cinnamon.empty? %>
+		        <%= render 'shared/kk_cinnamon' %>
+		        <% end %>
+			<% if !@params_kk_mapple.empty? %>
+		        <%= render 'shared/kk_mapple' %>
+		        <% end %>
+			<% if !@params_kk_sangria.empty? %>
+		        <%= render 'shared/kk_sangria' %>
+		        <% end %>
+		    </ul>
+		</li> 
+			
+			<% if !@params_kk_prod.empty? %> 
+			<%= render 'shared/kk_prod' %>
+		    	<% end %>
+            	<!--  end Kit-Kat  -->
+
+		<!-- Mass configuration -->
+		<li>
+		<a>MASS MAIN</a>
+		   <ul>
+		  	<% if !@params_mass_chocolate.empty? %>
+		  	<%= render 'shared/mass_chocolate' %>
+		  	<% end %>		  	
+		    </ul>
+		</li> 			
+			<% if !@params_mass_prod.empty? %> 
+			<%= render 'shared/mass_prod' %>
+		    	<% end %>
+            	<!--  end Mass  -->
+
+    	</ul> 
+  </div>
+  <div style="padding-top:20px"></div>
+	<strong>GGSM [CP]</strong>
+  	<div id="selector_modem">
+	<ul>
+		<li>
+		<a>MAIN</a>
+		    <ul>
+			<% if !@modem_main_blueberry.empty? %>
+			<%= render 'shared/mo_blueberry' %>
+			<% end %>
+			<% if !@modem_main_combination.empty? %>
+		        <%= render 'shared/mo_combination' %>
+		        <% end %>
+		        <% if !@modem_main_IceMoCha.empty? %>
+		        <%= render 'shared/mo_IceMoCha' %>
+		        <% end %>
+		        <% if !@modem_main_maple.empty? %>
+		        <%= render 'shared/mo_maple' %>
+		        <% end %>
+		        <% if !@modem_main_sangria.empty? %>
+		        <%= render 'shared/mo_sangria' %>
+		        <% end %>
+		        <% if !@modem_main_infineon.empty? %>
+		        <%= render 'shared/mo_infineon' %>
+		        <% end %>
+		        
+		      </ul>
+		  </li>
+		  <!-- modem prod tree --> 
+			<% if !@params_modem_prod.empty? %> 
+			<%= render 'shared/modem_prod' %>
+			<% end %>
+	</ul>
+  </div>
+
+</div>
+</div>
+<%= @project_id %>
+<script type="text/javascript">    
+     jQuery("#selector").jstree({ 
+        "themes" : {
+            "theme" : "classic",    
+            "icons" : false
+        },
+        "plugins" : [ "themes", "html_data"]
+    });
+  </script>
+
+  <script type="text/javascript">    
+     jQuery("#selector_modem").jstree({ 
+        "themes" : {
+            "theme" : "classic",    
+            "icons" : false
+        },
+        "plugins" : [ "themes", "html_data"]
+    });
+  </script>
+
+<%#= debug(params) if Rails.env.development? %>

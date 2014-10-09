@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "SRBD DPI OpenGrok", root_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              
+              <% if admin_signed_in? %>
+                <li><%= link_to('Permission', projectusers_path) %></li>
+                <li><%= link_to('Projects', projects_path) %></li>
+                <li><%= link_to('Users', users_path) %></li>
+                <li style="color:#fff; padding-top:10px;"> Logged in as <%= current_admin.username %></li>
+                <li><%= link_to('Profile', edit_admin_registration_path) %></li>
+                <li><%= link_to('Logout', destroy_admin_session_path, :method => :delete) %></li>  
+               <% else %>
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Update Report", report_path %></li>
+                <li><%= link_to "Admin", admin_session_path %></li>
+               <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+  </header>

@@ -1,0 +1,30 @@
+<div style="padding-top:60px">
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Projectname"%><br>
+   <p><%= f.collection_select :id,Projects.all,:id,:projectname,{include_blank: false},{ multiple: false, class: "chosen-select"}%></p>
+   </div>
+  <%= fields_for(@projectuser) do |pu|%>
+   <div class="field">
+   <p>
+    <%= pu.label "Username" %><br>
+    <%= collection_select(:users,:user_ids,@all_users,:id,:username,{},{multiple: true}) %>
+  </p>
+   </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
