@@ -18,8 +18,8 @@
     <% @projectusers.each do |projectuser| %>
       <tr>
         
-        <td><%= projectuser.project_id %></td>
-        <td><%= projectuser.user_id %></td>
+        <td><%= Project.find(projectuser.project_id).projectname %></td>
+        <td><%= User.find(projectuser.user_id).username %></td>
         <td><%= link_to 'Show', projectuser %></td>
         <td><%= link_to 'Edit', edit_projectuser_path(projectuser) %></td>
         <td><%= link_to 'Destroy', projectuser, method: :delete, data: { confirm: 'Are you sure?' } %></td>

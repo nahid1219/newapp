@@ -1,5 +1,5 @@
 class ProjectusersController < ApplicationController
-   before_filter :authenticate_admin!
+  
   before_action :set_projectuser, only: [:show, :edit, :update, :destroy]
 
   # GET /projectusers

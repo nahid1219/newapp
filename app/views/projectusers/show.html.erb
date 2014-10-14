@@ -3,12 +3,12 @@
 
 <p>
   <strong>Project:</strong>
-  <%= @projectuser.project_id %>
+  <%= Project.find(@projectuser.project_id).projectname %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @projectuser.user_id %>
+  <%= User.find(@projectuser.user_id).username %>
 </p>
 
 <%= link_to 'Edit', edit_projectuser_path(@projectuser) %> |
