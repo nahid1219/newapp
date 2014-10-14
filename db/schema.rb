@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141009042148) do
 
-  create_table "ROLE_DEPARTMENT", primary_key: "ID", force: true do |t|
-    t.string "ROLE",       limit: 200, null: false
-    t.string "DEPARTMENT", limit: 200, null: false
-  end
-
-  create_table "ROLE_ID", primary_key: "ID", force: true do |t|
-    t.string "ROLE", limit: 200, null: false
-  end
-
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

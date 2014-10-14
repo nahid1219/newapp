@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_admin!
+  
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.order("id").page(params[:page]).per(10)
+     @projects = Project.search(params[:search]).order("id").page(params[:page]).per(10)
+     
   end
 
   # GET /projects/1
@@ -22,6 +23,9 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @project = Project.find(params[:id])
+    @all_users = User.all
+    @projectuser = @project.projectusers.build
   end
 
   # POST /projects
